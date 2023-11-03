@@ -18,14 +18,16 @@ df_final_f1 = None
 df_final_f2 = None
 df_final_f3_4 = None
 df_final_f5 = None
-# df_final_f6 = None
+df_final_ML = None
+similarity_matrix = None
 @app.on_event("startup")
 async def load_data():
     global df_final_f1
     global df_final_f2
     global df_final_f3_4
     global df_final_f5
-    # global df_final_f6
+    global df_final_ML
+    global similarity_matrix
     # Leer el archivo csv desde la ruta relativa y crear el dataframe global
     df_fc1 = pd.read_csv('funcion_1.csv')
     df_final_f1 = pd.DataFrame(df_fc1)
@@ -35,8 +37,23 @@ async def load_data():
     df_final_f3_4 = pd.DataFrame(df_fc3)
     df_fc5 = pd.read_csv('funcion_5.csv')
     df_final_f5 = pd.DataFrame(df_fc5)
-    # df_fc6 = pd.read_csv('funcion_6.csv')
-    # df_final_f6 = pd.DataFrame(df_fc6)
+    df_fc6 = pd.read_csv('funcion_6.csv')
+    df_final_ML = pd.DataFrame(df_fc6)
+
+    num_cols = ['Hours_Played', 'release_year', 'sentiment_analysis']
+    cat_cols = ['genres', 'app_name']
+
+    #Crear un transformador de columnas para procesar las columnas numéricas y categóricas
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ('num', 'passthrough', num_cols),
+            ('cat', OneHotEncoder(), cat_cols)])
+
+     #Ajustar y transformar los datos con el preprocesador
+    X_transformed = preprocessor.fit_transform(df_final_ML)
+
+     #Calcular la matriz de similitud del coseno
+    similarity_matrix = cosine_similarity(X_transformed)
 
 print(df_final_f1)
 @app.get("/")
@@ -69,6 +86,12 @@ async def get_playtime(genero: str):
 # Funcion 2
 @app.get("/UserForGenre/{genero}")
 async def get_UserForGenre(genero: str):
+
+      # Convertir el género a minúsculas
+    genero = genero.lower()
+    
+    # Convertir los géneros del dataframe a minúsculas
+    df_final_f2['genres'] = df_final_f2['genres'].str.lower()
       # Filtrar el DataFrame por el género especificado
     df_genero = df_final_f2[df_final_f2['genres'] == genero]
 
@@ -171,6 +194,40 @@ async def sentiment_analysis(year: int):
             results['Positive'] = int(sentiment_counts[i])
     
     return results
+
+
+ #Funcion 6
+@app.get("/recomendacion_juego/{item_name}")
+async def recomendacion_juego(item_name: str):
+     # Utilizar la matriz de similitud del coseno precargada
+
+     # Verificar si el juego ingresado está en los datos
+     if item_name not in df_final_ML['Item_name'].values:
+         return "El juego no se encontró en los datos solicitados"
+    
+     # Obtener el índice del juego en la muestra
+     item_id = df_final_ML[df_final_ML['Item_name'] == item_name].index[0]
+    
+     # Obtener las puntuaciones de similitud para el ítem dado
+     similarity_scores = list(enumerate(similarity_matrix[item_id]))
+    
+     # Ordenar las puntuaciones de similitud en orden descendente
+     similarity_scores = sorted(similarity_scores, key=lambda x: x[1], reverse=True)
+    
+     # Obtener los índices de los juegos más similares
+     similar_items = [i[0] for i in similarity_scores if df_final_ML['Item_name'].iloc[i[0]] != item_name]
+    
+     # Devolver los nombres de los 5 juegos más similares sin duplicados
+     recommended_games = []
+     for item in similar_items:
+         game_name = df_final_ML['Item_name'].iloc[item]
+         if game_name not in recommended_games:
+             recommended_games.append(game_name)
+         if len(recommended_games) == 5:
+             break
+    
+     return "Los 5 juegos más recomendados para el juego {} son: {}".format(item_name, recommended_games)
+
 
 # Ejecutar la aplicación con Uvicorn
 if __name__ == "__main__":
