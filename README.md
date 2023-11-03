@@ -19,8 +19,8 @@ Se combinaron los datos de los diferentes DataFrames, se realizaron  uniones uti
 
 ### FUENTES DE DATOS: 
 
-**-Dataset** : el cual incluye tres archivos que debemos importar y luego procesar (movies_dataset.csv y credits.csv)
-**- Diccionario de datos** : con algunas descripciones de las columnas que están disponibles en el dataset. [Fuente de datos]()
+**-Dataset** : el cual incluye tres archivos que debemos importar y luego procesar (steam_games.json.gz, user_reviews_json.gz, users_items.json.)
+**- Diccionario de datos** : con algunas descripciones de las columnas que están disponibles en el dataset. [Fuente de datos](https://drive.google.com/drive/folders/1-wPR1TltFnhXaQS_FQ7TFw4DKL6658f3?usp=sharing)
 
 
 **-EDA:** Conjunto de técnicas estadísticas dirigidas a explorar, describir y resumir la información que contienen los datos, maximizando su comprensión. Con este análisis trate de comprender la relación que existe entre las varialbes del dataset, buscando outliers, creando una matriz de correlación para un mejor análisis de los datos. También haremos un análisis estadístico así como la visualización de diferentes gráficos.
@@ -38,16 +38,16 @@ Utilizando el framework FastAPI, las consultas propuestas son:
 
 ####  def PlayTimeGenre(genero):
 ####  def UserForGenre(genero):
-#### def UsersRecommend(year: int):
-#### def UsersNotRecommend(year: int):
-#### def sentiment_analysis(year: int):  
+####  def UsersRecommend(year: int):
+####  def UsersNotRecommend(year: int):
+####  def sentiment_analysis(year: int):  
 
 
 ### Dejo el link a la api: [Desarrollo de la Api](https://fastapi-j9ta.onrender.com/docs)
 
 ### SISTEMA DE RECOMENDACIÓN: 
-Por último crearemos un modelo de Machine Learning para la recomendación de juegos bqsándose en juegos similares. Todo esto lo llevaremos con una función a ser consumida por la API. La consulta será:
-####  **- ddef recomendacion_juego(item_name):**
+Por último crearemos un modelo de Machine Learning para la recomendación de juegos basándose en juegos similares. Todo esto lo llevaremos con una función a ser consumida por la API. La consulta será:
+####  **- def recomendacion_juego(item_name):**
 
 #### He realizado un vídeo con una breve descripción del proyecto [Video]()
 
