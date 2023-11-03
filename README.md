@@ -55,4 +55,7 @@ Por último crearemos un modelo de Machine Learning para la recomendación de ju
 
 
 
+
+
+
 **Realizado por: Nelly Molina Contreras, Data Science.**
