@@ -45,7 +45,7 @@ Utilizando el framework FastAPI, las consultas propuestas son:
 ####  def sentiment_analysis(year: int):  
 
 
-### Dejo el link a la api: [Desarrollo de la Api](https://fastapi-j9ta.onrender.com/docs)
+### Dejo el link a la api: [Acceso a la Api](https://api-henry-mlops.onrender.com/docs)
 
 ### SISTEMA DE RECOMENDACIÓN: 
 Por último crearemos un modelo de Machine Learning para la recomendación de juegos basándose en juegos similares. Todo esto lo llevaremos con una función a ser consumida por la API. La consulta será:
@@ -54,3 +54,5 @@ Por último crearemos un modelo de Machine Learning para la recomendación de ju
 #### He realizado un vídeo con una breve descripción del proyecto [Video](https://www.youtube.com/watch?v=B2wgW4MXN5U)
 
 
+
+**Realizado por: Nelly Molina Contreras, Data Science.**
