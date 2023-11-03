@@ -30,7 +30,7 @@ async def load_data():
     global similarity_matrix
     # Leer el archivo csv desde la ruta relativa y crear el dataframe global
      # Leer el archivo csv desde la ruta relativa y crear el dataframe global
-    df_fc1 = pd.read_csv('/home/alfredo/Documentos/Proyecto-Individual-MLOps/Datasets/funcion_1.csv')
+    df_fc1 = pd.read_csv('Datasets/funcion_1.csv')
     df_final_f1 = pd.DataFrame(df_fc1)
     df_fc2 = pd.read_csv('/home/alfredo/Documentos/Proyecto-Individual-MLOps/Datasets/funcion_2.csv')
     df_final_f2 = pd.DataFrame(df_fc2)
