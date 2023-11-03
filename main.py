@@ -37,7 +37,7 @@ async def load_data():
     df_final_f3_4 = pd.DataFrame(df_fc3)
     df_fc5 = pd.read_csv('funcion_5.csv')
     df_final_f5 = pd.DataFrame(df_fc5)
-    df_fc6 = pd.read_csv('funcion_6.csv')
+    df_fc6 = pd.read_csv('Machine_learning.csv')
     df_final_ML = pd.DataFrame(df_fc6)
 
     num_cols = ['Hours_Played', 'release_year', 'sentiment_analysis']
