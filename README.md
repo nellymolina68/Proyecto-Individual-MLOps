@@ -1,7 +1,8 @@
 # MACHINE LEARNING OPERATIONS (MOLps)
 
-## Proyecto de Recomendación a la empresa STEAM : Plataforma multinacional de Videojuegos .
+## Proyecto de Recomendación a la empresa STEAM : Plataforma multinacional de Videojuegos.
 
+![](img2.png)
 
 ## Objetivos del Proyecto: 
 
@@ -9,7 +10,7 @@
 
 #### **Pasos que involucran el proyecto desde el inicio del proceso ETL (Extract, Transform, Load) hasta la creación de la API y disponibilidad en la plataforma Render** 
 
-**1.- Importación de las librerias necesarias para trabajar en vsc con Python.**  
+**1.- Importaión de las librerias necesarias para trabajar en vsc con Python.**  
 
   
 **2.- Proceso del ETL:** (Extraer, transformar, cargar)
@@ -25,7 +26,8 @@ Se combinaron los datos de los diferentes DataFrames, se realizaron  uniones uti
 
 **-EDA:** Conjunto de técnicas estadísticas dirigidas a explorar, describir y resumir la información que contienen los datos, maximizando su comprensión. Con este análisis trate de comprender la relación que existe entre las varialbes del dataset, buscando outliers, creando una matriz de correlación para un mejor análisis de los datos. También haremos un análisis estadístico así como la visualización de diferentes gráficos.
 
-![Texto alternativo] (URL de la imagen)
+ ![](img.png)
+
 
 ### REPOSITORIO:
 En github, creamos un repositorio donde tendremos todo los archivos de nuestro proyecto, el cual se conectará con Render con el servicio Web que creamos.
@@ -49,6 +51,6 @@ Utilizando el framework FastAPI, las consultas propuestas son:
 Por último crearemos un modelo de Machine Learning para la recomendación de juegos basándose en juegos similares. Todo esto lo llevaremos con una función a ser consumida por la API. La consulta será:
 ####  **- def recomendacion_juego(item_name):**
 
-#### He realizado un vídeo con una breve descripción del proyecto [Video]()
+#### He realizado un vídeo con una breve descripción del proyecto [Video](https://www.youtube.com/watch?v=B2wgW4MXN5U)
 
 
