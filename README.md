@@ -2,7 +2,7 @@
 
 ## Proyecto de Recomendación a la empresa STEAM : Plataforma multinacional de Videojuegos.
 
-![](img2.png)
+![](img/img2.png)
 
 ## Objetivos del Proyecto: 
 
@@ -26,7 +26,7 @@ Se combinaron los datos de los diferentes DataFrames, se realizaron  uniones uti
 
 **-EDA:** Conjunto de técnicas estadísticas dirigidas a explorar, describir y resumir la información que contienen los datos, maximizando su comprensión. Con este análisis trate de comprender la relación que existe entre las varialbes del dataset, buscando outliers, creando una matriz de correlación para un mejor análisis de los datos. También haremos un análisis estadístico así como la visualización de diferentes gráficos.
 
- ![](img.png)
+ ![](img/img.png)
 
 
 ### REPOSITORIO:
